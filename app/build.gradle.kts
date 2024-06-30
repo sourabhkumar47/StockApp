@@ -84,6 +84,7 @@ dependencies {
     implementation("io.github.raamcosta.compose-destinations:core:1.1.2-beta")
     implementation("androidx.navigation:navigation-compose:2.7.7")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+    kapt ("io.github.raamcosta.compose-destinations:ksp:1.1.2-beta")
 
     //Dagger - Hilt
     implementation("com.google.dagger:hilt-android:2.50")

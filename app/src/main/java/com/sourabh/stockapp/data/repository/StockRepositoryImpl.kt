@@ -1,6 +1,7 @@
 package com.sourabh.stockapp.data.repository
 
 import com.google.gson.Gson
+import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
 import com.sourabh.stockapp.data.local.StockDatabase
 import com.sourabh.stockapp.data.mapper.toGainerList
@@ -26,8 +27,10 @@ class StockRepositoryImpl @Inject constructor(
     private fun parseResponseBody(responseBody: ResponseBody): List<TopGainer> {
         val gson = Gson()
         val jsonString = responseBody.string()
+        val jsonObject = gson.fromJson(jsonString, JsonObject::class.java)
+        val jsonArray = jsonObject.getAsJsonArray("top_gainers") // get the "top_gainers" array
         val listType = object : TypeToken<List<TopGainer>>() {}.type
-        return gson.fromJson(jsonString, listType)
+        return gson.fromJson(jsonArray, listType)
     }
 
     private val dao = db.dao
