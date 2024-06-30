@@ -3,10 +3,14 @@ package com.sourabh.stockapp.data.repository
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
+import com.sourabh.stockapp.data.csv.CSVParser
 import com.sourabh.stockapp.data.local.StockDatabase
+import com.sourabh.stockapp.data.mapper.toCompanyInfo
 import com.sourabh.stockapp.data.mapper.toGainerList
 import com.sourabh.stockapp.data.mapper.toGainerListEntity
 import com.sourabh.stockapp.data.remote.StockApi
+import com.sourabh.stockapp.domain.module.CompanyInfo
+import com.sourabh.stockapp.domain.module.IntradayInfo
 import com.sourabh.stockapp.domain.module.TopGainer
 import com.sourabh.stockapp.domain.repository.StockRepository
 import com.sourabh.stockapp.util.Resource
@@ -21,8 +25,10 @@ import javax.inject.Singleton
 @Singleton
 class StockRepositoryImpl @Inject constructor(
     private val api: StockApi,
-    private val db: StockDatabase
-) : StockRepository {
+    private val db: StockDatabase,
+    private val intradayInfoParser: CSVParser<IntradayInfo>,
+
+    ) : StockRepository {
 
     private fun parseResponseBody(responseBody: ResponseBody): List<TopGainer> {
         val gson = Gson()
@@ -84,6 +90,41 @@ class StockRepositoryImpl @Inject constructor(
                 }
                 emit(Resource.Loading(false))
             }
+        }
+    }
+
+    override suspend fun getIntradayInfo(symbol: String): Resource<List<IntradayInfo>> {
+        return try {
+            val response = api.getIntradayInfo(symbol)
+            val results = intradayInfoParser.parse(response.byteStream())
+            Resource.Success(results)
+        } catch (e: IOException) {
+            e.printStackTrace()
+            Resource.Error(
+                "Couldn't load data"
+            )
+        } catch (e: HttpException) {
+            e.printStackTrace()
+            Resource.Error(
+                "Couldn't load data"
+            )
+        }
+    }
+
+    override suspend fun getCompanyInfo(symbol: String): Resource<CompanyInfo> {
+        return try {
+            val response = api.getCompanyInfo(symbol)
+            Resource.Success(response.toCompanyInfo())
+        } catch (e: IOException) {
+            e.printStackTrace()
+            Resource.Error(
+                "Couldn't load data"
+            )
+        } catch (e: HttpException) {
+            e.printStackTrace()
+            Resource.Error(
+                "Couldn't load data"
+            )
         }
     }
 }
