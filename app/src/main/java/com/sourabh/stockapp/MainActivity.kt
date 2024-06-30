@@ -8,9 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavGraph
-import com.ramcosta.composedestinations.DestinationsNavHost
-import com.sourabh.stockapp.presentation.stock_list.HomeScreen
+import com.sourabh.stockapp.presentation.stock_list.TopGainerScreen
 import com.sourabh.stockapp.ui.theme.StockAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,7 +23,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    HomeScreen()
+                    TopGainerScreen()
                 }
             }
         }

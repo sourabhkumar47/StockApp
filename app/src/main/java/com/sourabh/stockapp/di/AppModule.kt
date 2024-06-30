@@ -2,9 +2,11 @@ package com.sourabh.stockapp.di
 
 import android.app.Application
 import androidx.room.Room
+import com.sourabh.stockapp.data.csv.CSVParser
 import com.sourabh.stockapp.data.local.StockDatabase
 import com.sourabh.stockapp.data.remote.StockApi
 import com.sourabh.stockapp.data.repository.StockRepositoryImpl
+import com.sourabh.stockapp.domain.module.IntradayInfo
 import com.sourabh.stockapp.domain.repository.StockRepository
 import dagger.Module
 import dagger.Provides
@@ -29,7 +31,10 @@ object AppModule {
             .addConverterFactory(MoshiConverterFactory.create())
             .client(
                 OkHttpClient.Builder()
-                .addInterceptor(HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BASIC }).build())
+                    .addInterceptor(HttpLoggingInterceptor().apply {
+                        level = HttpLoggingInterceptor.Level.BASIC
+                    }).build()
+            )
             .build()
             .create()
     }
@@ -48,7 +53,8 @@ object AppModule {
     @Singleton
     fun provideStockRepository(
         api: StockApi,
-        db: StockDatabase
-    ): StockRepository = StockRepositoryImpl(api, db)
+        db: StockDatabase,
+        csv: CSVParser<IntradayInfo>
+    ): StockRepository = StockRepositoryImpl(api, db, csv)
 
 }

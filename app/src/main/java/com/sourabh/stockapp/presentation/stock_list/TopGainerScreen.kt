@@ -20,7 +20,7 @@ import com.ramcosta.composedestinations.annotation.Destination
 
 @Composable
 @Destination(start = true)
-fun HomeScreen(
+fun TopGainerScreen(
 //    navigator: DestinationsNavigator,
     viewModel: CompanyListingsViewModel = hiltViewModel()
 ) {
