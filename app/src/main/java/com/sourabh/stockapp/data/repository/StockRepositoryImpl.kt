@@ -14,10 +14,11 @@ import kotlinx.coroutines.flow.flow
 import okhttp3.ResponseBody
 import retrofit2.HttpException
 import java.io.IOException
+import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class StockRepositoryImpl(
+class StockRepositoryImpl @Inject constructor(
     private val api: StockApi,
     private val db: StockDatabase
 ) : StockRepository {
