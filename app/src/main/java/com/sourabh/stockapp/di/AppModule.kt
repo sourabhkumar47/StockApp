@@ -49,12 +49,12 @@ object AppModule {
         ).build()
     }
 
-    @Provides
-    @Singleton
-    fun provideStockRepository(
-        api: StockApi,
-        db: StockDatabase,
-        csv: CSVParser<IntradayInfo>
-    ): StockRepository = StockRepositoryImpl(api, db, csv)
+//    @Provides
+//    @Singleton
+//    fun provideStockRepository(
+//        api: StockApi,
+//        db: StockDatabase,
+//        csv: CSVParser<IntradayInfo>
+//    ): StockRepository = StockRepositoryImpl(api, db, csv)
 
 }
