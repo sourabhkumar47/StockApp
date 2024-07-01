@@ -6,11 +6,11 @@ import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
 import com.sourabh.stockapp.data.csv.CSVParser
 import com.sourabh.stockapp.data.local.StockDatabase
-import com.sourabh.stockapp.data.local.TopLoserEntity
 import com.sourabh.stockapp.data.mapper.toCompanyInfo
 import com.sourabh.stockapp.data.mapper.toGainerList
 import com.sourabh.stockapp.data.mapper.toGainerListEntity
 import com.sourabh.stockapp.data.mapper.toLoserList
+import com.sourabh.stockapp.data.mapper.toLoserListEntity
 import com.sourabh.stockapp.data.remote.StockApi
 import com.sourabh.stockapp.domain.module.CompanyInfo
 import com.sourabh.stockapp.domain.module.IntradayInfo
@@ -25,7 +25,6 @@ import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
-import com.sourabh.stockapp.data.mapper.toLoserListEntity
 
 @Singleton
 class StockRepositoryImpl @Inject constructor(
