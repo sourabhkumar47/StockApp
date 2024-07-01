@@ -18,7 +18,6 @@ fun Navigation(navController: NavHostController) {
 
     NavHost(navController, startDestination = Screen.TopLoserScreen.route) {
         composable(Screen.TopGainerScreen.route) {
-//            HomeScreen(navController = navController)
             TopGainerScreen(navController = navController)
         }
 
@@ -39,5 +38,13 @@ fun Navigation(navController: NavHostController) {
                 CompanyInfoScreen(symbol = symbol)
             }
         }
+    }
+}
+
+@Composable
+fun NavigationScreens(navController: NavHostController) {
+    NavHost(navController, startDestination = NavItem.Gainer.path) {
+        composable(NavItem.Gainer.path) { TopGainerScreen(navController = navController) }
+        composable(NavItem.Loser.path) { TopLoserScreen(navController = navController) }
     }
 }

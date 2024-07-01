@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.sourabh.stockapp.nav_utils.Navigation
+import com.sourabh.stockapp.presentation.home_screen.MainScreen
 import com.sourabh.stockapp.presentation.topLoserList.TopLoserScreen
 import com.sourabh.stockapp.ui.theme.StockAppTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,7 +24,7 @@ class MainActivity : ComponentActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+//        enableEdgeToEdge()
         setContent {
             StockAppTheme {
                 val navController = rememberNavController()
@@ -33,7 +34,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Navigation(navController)
+//                    Navigation(navController)
+                    MainScreen(navController = navController)
 //                    TopLoserScreen()
                 }
             }
