@@ -22,7 +22,7 @@ import com.sourabh.stockapp.nav_utils.Screen
 @Composable
 fun TopGainerScreen(
     navController: NavHostController,
-    viewModel: CompanyListingsViewModel = hiltViewModel()
+    viewModel: TopGainerViewModel = hiltViewModel()
 ) {
     val swipeRefreshState = rememberSwipeRefreshState(
         isRefreshing = viewModel.state.isRefreshing
@@ -35,7 +35,7 @@ fun TopGainerScreen(
             value = state.searchQuery,
             onValueChange = {
                 viewModel.onEvent(
-                    CompanyListingsEvent.OnSearchQueryChange(it)
+                    TopGainerEvent.OnSearchQueryChange(it)
                 )
             },
             modifier = Modifier
@@ -50,7 +50,7 @@ fun TopGainerScreen(
         SwipeRefresh(
             state = swipeRefreshState,
             onRefresh = {
-                viewModel.onEvent(CompanyListingsEvent.Refresh)
+//                viewModel.onEvent(TopGainerEvent.Refresh)
             }
         ) {
             LazyColumn(

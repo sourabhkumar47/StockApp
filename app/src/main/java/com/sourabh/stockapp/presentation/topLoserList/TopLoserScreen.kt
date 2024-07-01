@@ -17,8 +17,7 @@ import androidx.navigation.NavHostController
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.sourabh.stockapp.nav_utils.Screen
-import com.sourabh.stockapp.presentation.topGainerList.CompanyListingsEvent
-import com.sourabh.stockapp.presentation.topGainerList.StockCard
+import com.sourabh.stockapp.presentation.topGainerList.TopGainerEvent
 
 
 @Composable
@@ -37,7 +36,7 @@ fun TopLoserScreen(
             value = state.searchQuery,
             onValueChange = {
                 viewModel.onEvent(
-                    CompanyListingsEvent.OnSearchQueryChange(it)
+                    TopLoserEvent.OnSearchQueryChange(it)
                 )
             },
             modifier = Modifier
@@ -52,7 +51,7 @@ fun TopLoserScreen(
         SwipeRefresh(
             state = swipeRefreshState,
             onRefresh = {
-                viewModel.onEvent(CompanyListingsEvent.Refresh)
+//                viewModel.onEvent(TopGainerEvent.Refresh)
             }
         ) {
             LazyColumn(

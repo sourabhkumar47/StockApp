@@ -45,7 +45,7 @@ fun StockCard(
                 )
                 Spacer(modifier = Modifier.width(4.dp))
                 Text(
-                    text = topLoser.price.toString(),
+                    text = topLoser.price,
                     fontWeight = FontWeight.Light,
                     color = MaterialTheme.colorScheme.onBackground
                 )

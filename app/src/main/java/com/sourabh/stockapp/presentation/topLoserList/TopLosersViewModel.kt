@@ -6,7 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sourabh.stockapp.domain.repository.StockRepository
-import com.sourabh.stockapp.presentation.topGainerList.CompanyListingsEvent
+import com.sourabh.stockapp.presentation.topGainerList.TopGainerEvent
 import com.sourabh.stockapp.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
@@ -27,13 +27,13 @@ class TopLosersViewModel @Inject constructor(
         getTopLoserListings()
     }
 
-    fun onEvent(event: CompanyListingsEvent) {
+    fun onEvent(event: TopLoserEvent) {
         when (event) {
-            is CompanyListingsEvent.Refresh -> {
-                getTopLoserListings(fetchFromRemote = true)
-            }
+//            is TopGainerEvent.Refresh -> {
+//                getTopLoserListings(fetchFromRemote = true)
+//            }
 
-            is CompanyListingsEvent.OnSearchQueryChange -> {
+            is TopLoserEvent.OnSearchQueryChange -> {
                 state = state.copy(searchQuery = event.query)
                 searchJob?.cancel()
                 searchJob = viewModelScope.launch {
