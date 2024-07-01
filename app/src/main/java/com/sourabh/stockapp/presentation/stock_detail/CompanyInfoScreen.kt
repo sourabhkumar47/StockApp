@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -35,7 +36,6 @@ fun CompanyInfoScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.DarkGray)
                 .padding(16.dp)
         ) {
             state.company?.let { company ->
@@ -43,7 +43,7 @@ fun CompanyInfoScreen(
                     Text(
                         text = it,
                         fontWeight = FontWeight.Bold,
-                        fontSize = 18.sp,
+                        fontSize = 20.sp,
                         overflow = TextOverflow.Ellipsis,
                         modifier = Modifier.fillMaxWidth()
                     )
@@ -53,7 +53,7 @@ fun CompanyInfoScreen(
                     Text(
                         text = it,
                         fontStyle = FontStyle.Italic,
-                        fontSize = 14.sp,
+                        fontSize = 16.sp,
                         modifier = Modifier.fillMaxWidth()
                     )
                 }
@@ -77,7 +77,7 @@ fun CompanyInfoScreen(
                     overflow = TextOverflow.Ellipsis
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-                Divider(
+                HorizontalDivider(
                     modifier = Modifier
                         .fillMaxWidth()
                 )
