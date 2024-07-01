@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -53,7 +55,8 @@ fun TopGainerScreen(
 //                viewModel.onEvent(TopGainerEvent.Refresh)
             }
         ) {
-            LazyColumn(
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(2),
                 modifier = Modifier.fillMaxSize()
             ) {
                 items(state.companies.size) { i ->
@@ -65,15 +68,15 @@ fun TopGainerScreen(
                             .clickable {
                                 navController.navigate("${Screen.Details.route}/${company.ticker}")
                             }
-                            .padding(16.dp)
+//                            .padding(16.dp)
                     )
-                    if (i < state.companies.size) {
-                        HorizontalDivider(
-                            modifier = Modifier.padding(
-                                horizontal = 16.dp
-                            )
-                        )
-                    }
+//                    if (i < state.companies.size) {
+//                        HorizontalDivider(
+//                            modifier = Modifier.padding(
+//                                horizontal = 16.dp
+//                            )
+//                        )
+//                    }
                 }
             }
         }

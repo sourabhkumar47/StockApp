@@ -1,5 +1,6 @@
 package com.sourabh.stockapp.data.repository
 
+import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
@@ -34,11 +35,20 @@ class StockRepositoryImpl @Inject constructor(
 
     ) : StockRepository {
 
-    private fun parseResponseBody(responseBody: ResponseBody): List<TopGainer> {
+    private fun parseResponseBody(responseBody: ResponseBody): List<TopGainer>? {
         val gson = Gson()
         val jsonString = responseBody.string()
+        if (jsonString == null) {
+            Log.e("parseResponseBody", "jsonString is null")
+        }
         val jsonObject = gson.fromJson(jsonString, JsonObject::class.java)
+        if (jsonObject == null) {
+            Log.e("parseResponseBody", "jsonObject is null")
+        }
         val jsonArray = jsonObject.getAsJsonArray("top_gainers") // get the "top_gainers" array
+        if (jsonArray == null) {
+            Log.e("parseResponseBody", "jsonArray is null")
+        }
         val listType = object : TypeToken<List<TopGainer>>() {}.type
         return gson.fromJson(jsonArray, listType)
     }
