@@ -14,14 +14,14 @@ import com.sourabh.stockapp.presentation.topLoserList.TopLoserScreen
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun Navigation(navController: NavHostController) {
-
-    NavHost(navController, startDestination = Screen.TopLoserScreen.route) {
-        composable(Screen.TopGainerScreen.route) {
+fun NavigationScreens(navController: NavHostController) {
+    NavHost(navController, startDestination = NavItem.Gainer.path) {
+        composable(
+            NavItem.Gainer.path) {
             TopGainerScreen(navController = navController)
         }
 
-        composable(Screen.TopLoserScreen.route) {
+        composable(NavItem.Loser.path){
             TopLoserScreen(navController = navController)
         }
 
@@ -38,13 +38,5 @@ fun Navigation(navController: NavHostController) {
                 CompanyInfoScreen(symbol = symbol)
             }
         }
-    }
-}
-
-@Composable
-fun NavigationScreens(navController: NavHostController) {
-    NavHost(navController, startDestination = NavItem.Gainer.path) {
-        composable(NavItem.Gainer.path) { TopGainerScreen(navController = navController) }
-        composable(NavItem.Loser.path) { TopLoserScreen(navController = navController) }
     }
 }

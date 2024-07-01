@@ -26,6 +26,7 @@ fun MainScreen(navController: NavHostController) {
     Scaffold(bottomBar = {
         BottomAppBar { BottomNavigationBar(navController = navController) }
     }) {
-        Navigation(navController = navController)
+//        Navigation(navController = navController)
+        NavigationScreens(navController = navController)
     }
 }
