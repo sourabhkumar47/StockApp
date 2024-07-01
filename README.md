@@ -1,18 +1,22 @@
 # StockApp Android App
 
-[//]: # (<p align="center"><img src="https://socialify.git.ci/sourabhkumar47/NewsBreeze/image?description=1&amp;descriptionEditable=NewsBreeze%20is%20a%20dynamic%20and%20user-friendly%20news%20application%20developed%20for%20the%20Android%20platform%20using%20Kotlin%20and%20Jetpack%20Compose.&amp;font=Inter&amp;language=1&amp;name=1&amp;pattern=Circuit%20Board&amp;theme=Light" alt="project-image"></p>)
-
 ## Screenshots
 
+### Light
+
 <p align="left">
-<img src="Screenshots/1.jpg" alt="drawing" width="250"/>
-<img src="Screenshots/2.jpg" alt="drawing" width="250"/>
-<img src="Screenshots/3.jpg" alt="drawing" width="250"/>
+<img src="https://github.com/sourabhkumar47/StockApp/assets/81826285/b7d039c6-42d1-4a7e-bf6e-7004eb28914e" alt="drawing" width="250"/>
+<img src="https://github.com/sourabhkumar47/StockApp/assets/81826285/2ea94b30-d5c4-43c3-8938-e469c2bfbcc0" alt="drawing" width="250"/>
+<img src="https://github.com/sourabhkumar47/StockApp/assets/81826285/1f71bb28-b034-4c86-9e82-cb31406ea206" alt="drawing" width="250"/>
+</p>
+
+### Dark
+<p align="left">
+<img src="https://github.com/sourabhkumar47/StockApp/assets/81826285/0ecbb54c-94e0-4ba6-a39c-a82f3e1d630c" alt="drawing" width="250"/>
+<img src="https://github.com/sourabhkumar47/StockApp/assets/81826285/498e887a-36d8-4e30-981a-5f88a7c48c58" alt="drawing" width="250"/>
 </p>
 
 ## Description
-
-It provides users with up-to-the-minute news from various sources, powered by the Newsapi.org API. The app is designed to offer a seamless and engaging experience, making it easy for users to stay informed about the latest events.
 
 ## Tech Stack Used
 
@@ -22,7 +26,7 @@ It provides users with up-to-the-minute news from various sources, powered by th
 - **Local Database:** Room
 - **Dependency Injection:** Dagger or Hilt
 - **Design Language:** Material Design principles
-- **API:** Newsapi.org
+- **API:** https://www.alphavantage.co
 
 
 ## How to Contribute
@@ -33,7 +37,7 @@ We welcome contributions to enhance and improve NewsBreeze. If you're interested
 
 2. **Clone the Repository:** Clone the forked repository to your local machine using the following command:
    ```
-   git clone https://github.com/your-username/NewsBreeze.git
+   git clone https://github.com/your-username/StockApp.git
    ```
 
 3. **Create a Branch:** Create a new branch for your contributions.
