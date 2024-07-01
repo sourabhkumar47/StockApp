@@ -1,4 +1,4 @@
-package com.sourabh.stockapp.presentation.stock_list
+package com.sourabh.stockapp.presentation.topGainerList
 
 import com.sourabh.stockapp.domain.module.TopGainer
 

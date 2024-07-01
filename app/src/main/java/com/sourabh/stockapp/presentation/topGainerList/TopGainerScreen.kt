@@ -1,4 +1,4 @@
-package com.sourabh.stockapp.presentation.stock_list
+package com.sourabh.stockapp.presentation.topGainerList
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -13,15 +13,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
-import com.ramcosta.composedestinations.annotation.Destination
+import com.sourabh.stockapp.nav_utils.Screen
 
 
 @Composable
-@Destination(start = true)
 fun TopGainerScreen(
-//    navigator: DestinationsNavigator,
+    navController: NavHostController,
     viewModel: CompanyListingsViewModel = hiltViewModel()
 ) {
     val swipeRefreshState = rememberSwipeRefreshState(
@@ -63,7 +63,7 @@ fun TopGainerScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable {
-
+                                navController.navigate("${Screen.Details.route}/${company.ticker}")
                             }
                             .padding(16.dp)
                     )

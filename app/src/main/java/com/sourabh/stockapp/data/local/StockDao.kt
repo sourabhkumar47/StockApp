@@ -16,6 +16,22 @@ interface StockDao {
     @Query("DELETE FROM topgainerentity")
     suspend fun clearCompanyListings()
 
+    //    @Insert(onConflict = OnConflictStrategy.REPLACE)
+//    suspend fun insertTopLosers(
+//        topLoserEntities: List<TopLoserEntity>
+//    )
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertTopLosers(
+        topLoserEntities: List<TopLoserEntity>
+    )
+
+    @Query("DELETE FROM toploserentity")
+    suspend fun clearLoserListings()
+
+//    @Query("SELECT * FROM TopLoserEntity")
+//    fun getAllTopLosers(): Flow<List<TopLoserEntity>>
+
+
     @Query(
         """
             SELECT * 
@@ -24,4 +40,13 @@ interface StockDao {
         """
     )
     suspend fun searchCompanyListing(query: String): List<TopGainerEntity>
+
+    @Query(
+        """
+            SELECT * 
+            FROM toploserentity
+            WHERE LOWER(ticker) LIKE '%' || LOWER(:query2) || '%'
+        """
+    )
+    suspend fun searchTopLoserListing(query2: String): List<TopLoserEntity>
 }

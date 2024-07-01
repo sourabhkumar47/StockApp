@@ -1,4 +1,4 @@
-package com.sourabh.stockapp.presentation.stock_list
+package com.sourabh.stockapp.presentation.topLoserList
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -6,31 +6,31 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sourabh.stockapp.domain.repository.StockRepository
+import com.sourabh.stockapp.presentation.topGainerList.CompanyListingsEvent
 import com.sourabh.stockapp.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class CompanyListingsViewModel @Inject constructor(
+class TopLosersViewModel @Inject constructor(
     private val repository: StockRepository
 ) : ViewModel() {
 
-    var state by mutableStateOf(CompanyListingsState())
+    var state by mutableStateOf(TopLoserState())
 
     private var searchJob: Job? = null
 
     init {
-        getCompanyListings()
+        getTopLoserListings()
     }
 
     fun onEvent(event: CompanyListingsEvent) {
         when (event) {
             is CompanyListingsEvent.Refresh -> {
-                getCompanyListings(fetchFromRemote = true)
+                getTopLoserListings(fetchFromRemote = true)
             }
 
             is CompanyListingsEvent.OnSearchQueryChange -> {
@@ -38,19 +38,19 @@ class CompanyListingsViewModel @Inject constructor(
                 searchJob?.cancel()
                 searchJob = viewModelScope.launch {
                     delay(500L)
-                    getCompanyListings()
+                    getTopLoserListings()
                 }
             }
         }
     }
 
-    private fun getCompanyListings(
+    private fun getTopLoserListings(
         query: String = state.searchQuery.lowercase(),
         fetchFromRemote: Boolean = false
     ) {
         viewModelScope.launch {
             repository
-                .getTopGainerList(fetchFromRemote, query)
+                .getTopLoserList(fetchFromRemote, query)
                 .collect { result ->
                     when (result) {
                         is Resource.Success -> {

@@ -1,4 +1,4 @@
-package com.sourabh.stockapp.data.local
+package com.sourabh.stockapp.domain.module
 
 data class TopLoser(
     val change_amount: String,

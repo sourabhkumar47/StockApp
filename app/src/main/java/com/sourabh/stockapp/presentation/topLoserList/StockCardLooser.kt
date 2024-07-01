@@ -1,4 +1,4 @@
-package com.sourabh.stockapp.presentation.stock_list
+package com.sourabh.stockapp.presentation.topLoserList
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,11 +17,12 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.sourabh.stockapp.domain.module.TopGainer
+import com.sourabh.stockapp.domain.module.TopLoser
 
 @Composable
 fun StockCard(
     modifier: Modifier = Modifier,
-    topGainer: TopGainer
+    topLoser: TopLoser
 ) {
     Row(
         modifier = modifier,
@@ -34,7 +35,7 @@ fun StockCard(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
-                    text = topGainer.ticker,
+                    text = topLoser.ticker,
                     fontWeight = FontWeight.SemiBold,
                     fontSize = 16.sp,
                     color = MaterialTheme.colorScheme.onBackground,
@@ -44,14 +45,14 @@ fun StockCard(
                 )
                 Spacer(modifier = Modifier.width(4.dp))
                 Text(
-                    text = topGainer.price.toString(),
+                    text = topLoser.price.toString(),
                     fontWeight = FontWeight.Light,
                     color = MaterialTheme.colorScheme.onBackground
                 )
             }
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = "(${topGainer.change_percentage}%)",
+                text = "(${topLoser.change_percentage}%)",
                 fontStyle = FontStyle.Italic,
                 color = MaterialTheme.colorScheme.onBackground
             )

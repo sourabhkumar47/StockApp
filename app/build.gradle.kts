@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -81,10 +82,11 @@ dependencies {
     implementation("com.google.accompanist:accompanist-swiperefresh:0.24.2-alpha")
 
     // Compose Nav Destinations
-    implementation("io.github.raamcosta.compose-destinations:core:1.1.2-beta")
     implementation("androidx.navigation:navigation-compose:2.7.7")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
-    kapt ("io.github.raamcosta.compose-destinations:ksp:1.1.2-beta")
+
+    implementation("io.github.raamcosta.compose-destinations:core:1.1.2-beta")
+    kapt("io.github.raamcosta.compose-destinations:ksp:1.1.2-beta")
 
     //Dagger - Hilt
     implementation("com.google.dagger:hilt-android:2.50")
@@ -109,6 +111,6 @@ dependencies {
 
 
     // Gson
-    implementation ("com.google.code.gson:gson:2.8.7")
+    implementation("com.google.code.gson:gson:2.8.7")
 
 }

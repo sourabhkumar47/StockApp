@@ -1,4 +1,4 @@
-package com.sourabh.stockapp.presentation.stock_list
+package com.sourabh.stockapp.presentation.topGainerList
 
 sealed class CompanyListingsEvent {
     object Refresh: CompanyListingsEvent()
