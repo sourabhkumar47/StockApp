@@ -1,5 +1,7 @@
 # StockApp Android App
 
+A sleek and efficient stock market app that provides a quick glance at the top gainers and losers of the US stock market from the previous day. The app allows users to explore detailed stock information with an integrated search feature.
+
 ## Screenshots
 
 ### Light
@@ -16,14 +18,21 @@
 <img src="https://github.com/sourabhkumar47/StockApp/assets/81826285/498e887a-36d8-4e30-981a-5f88a7c48c58" alt="drawing" width="250"/>
 </p>
 
-## Description
-
-## Tech Stack Used
+## Tech Stack
 
 - **Programming Language:** Kotlin
 - **UI Toolkit:** Jetpack Compose
 - **Data Retrieval:** Retrofit
 - **Local Database:** Room
-- **Dependency Injection:** Dagger or Hilt
+- **Dependency Injection:** Dagger/Hilt
 - **Design Language:** Material Design principles
-- **API:** https://www.alphavantage.co
+- **API:** [Alpha Vantage](https://www.alphavantage.co)
+
+## Features
+
+- **Top Gainers Screen:** Displays a list of stocks with the highest gains from the previous day.
+- **Top Losers Screen:** Shows stocks with the largest losses.
+- **Detail Screen:** Offers in-depth information on selected stocks.
+- **Search Bar:** Easily search for specific stocks on the home screen.
+
+
